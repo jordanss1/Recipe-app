@@ -1,0 +1,53 @@
+body {
+	padding: 0px;
+	margin: 0px;
+	height: 690px;
+}
+
+main {
+	height: 100%;
+}
+
+header h1 {
+	text-shadow: 1px 1px 1px black;
+	color: black;
+	font-family: 'Audiowide', cursive;
+	letter-spacing: 1px;
+	border-radius: 2px;
+}
+
+.h1-div {
+	margin: 5px 0 0 200px;
+	height: 130px;
+	border: 1px solid black;
+	border-radius: 9px;
+}
+
+.recipe-btn {
+	font-family: 'Audiowide', cursive;
+	font-size: 13px;
+	color: black;
+	border: 1px solid black;
+	border-radius: 100px;
+}
+
+.top {
+	height: 90px;
+	margin-top: 30px;
+}
+
+.name-instructions {
+	font-family: 'Audiowide', cursive;
+	width: 80%;	
+	height: 90px;
+	border: 1px solid white;
+	border-radius: 10px;
+}
+
+.name-instructions h2 {
+	
+}
+
+
+
+
