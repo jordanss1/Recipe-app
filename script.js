@@ -7,3 +7,31 @@
 1. 
 
 */
+
+const fetchApiAndDisplay = () => {
+	const mealName = document.getElementById("name"); 
+	const mealPicture = document.getElementById("first-color1");
+	const ingredients = document.getElementById("second-color1");
+	const instructions = document.getElementById("second-color2");
+	const youtube = document.getElementById("youtube");
+
+	axios.get("https://www.themealdb.com/api/json/v1/1/random.php")
+
+		.then(response => {
+			mealObject = response.data.meals[0];
+			console.log(mealObject);
+			mealName.innerHTML = mealObject.strMeal;
+			youtube
+			
+		})
+
+}
+
+window.onload = () => {
+	fetchApiAndDisplay();
+}
+
+document.getElementById("recipe-btn").addEventListener("click", e => {
+	e.preventDefault();
+
+});

@@ -37,7 +37,7 @@ main, section {
 	border-radius: 10px;
 }
 
-.recipe-btn {
+#recipe-btn {
 	font-family: 'Audiowide', cursive;
 	font-size: 13px;
 	color: black;
@@ -51,7 +51,7 @@ main, section {
 	position: relative;
 	left: 240px;
 	font-family: 'Audiowide', cursive;
-	width: 140px;	
+	width: 190px;
 	height: 100%;
 	border: 1px solid black;
 	border-top: none;
@@ -59,8 +59,13 @@ main, section {
 	border-radius: 5px;
 }
 
-.name-video h2 {
+.name-div {
+	width: 150%;
+}
 
+.name-div h2 {
+	font-weight: bold;
+	word-break: break-word;
 }
 
 .instructions {
@@ -68,7 +73,7 @@ main, section {
 	top: 10px;
 	right: 80px;
 	height: 60%;
-	width: 85%;
+	width: 114%;
 	z-index: 1;
 }
 
@@ -78,7 +83,7 @@ main, section {
 	background-color: white;
 }
 
-.first-color1 {
+#first-color1 {
 	height: 80%;
 	width: 61%;
 	border: 1.5px solid rgb(254, 140, 234);	
@@ -92,7 +97,7 @@ main, section {
 	height: 100%;
 }
 
-.second-color1 {
+#second-color1 {
 	height: 100%;
 	width: 40%;
 	background-color: white;
@@ -104,7 +109,7 @@ main, section {
 	border-bottom-right-radius: 0;
 }
 
-.second-color2 {
+#second-color2 {
 	height: 100%;
 	width: 60%;
 	border: 2px solid black;	
