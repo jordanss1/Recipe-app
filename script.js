@@ -8,20 +8,35 @@
 
 */
 
+/*const findIngredientsAndMeasurements = (tempLiteral, array, object) => {
+	for (let i = 1; i < 20; i++) {
+		let ingredients = [];
+
+		ingredients.push(object[`tempLiteral${}`]);
+		ingredients.filter(element => {
+			if (element) {
+				array.push(element);
+			};
+		});
+	}
+};*/
 
 const fetchApiAndDisplay = () => {
 	const mealName = document.getElementById("name"); 
 	const mealPicture = document.getElementById("first-color1");
-	const ingredients = document.getElementById("second-color1");
-	const instructions = document.getElementById("second-color2");
+	const ingredientsDiv = document.getElementById("ingredients");
+	const instructionsDiv = document.getElementById("second-color2");
 	const youtube = document.getElementById("youtube");
 	const imgTag = document.createElement("img");
 
 	axios.get("https://www.themealdb.com/api/json/v1/1/random.php")
 
 		.then(response => {
-			mealObject = response.data.meals[0];
-			let objToArray = Object.entries(mealObject);
+			let mealObject = response.data.meals[0];
+			let meal = mealObject.strMeal;
+			let mealPic = mealObject.strMealThumb;
+			let finalIngredients = [];
+			let finalMeasurements = [];
 
 			if (mealObject.strYoutube === "") {
 				youtube.disabled = true;
@@ -29,16 +44,33 @@ const fetchApiAndDisplay = () => {
 
 			console.log(mealObject);
 
-			mealName.innerHTML = mealObject.strMeal;
+			mealName.innerHTML = meal;
 
-			imgTag.setAttribute("src", mealObject.strMealThumb);
+			imgTag.setAttribute("src", mealPic);
 			mealPicture.append(imgTag);
 
-			const regExpr = [/strIngredient/, /""/];
-			const newArray = objToArray.filter(element => {
-				return regExpr[0].test(element);
-			})
-			console.log(newArray);
+			for (let i = 1; i < 20; i++) {
+				let ingredients = [];
+
+				ingredients.push(mealObject[`strIngredient${i}`]);
+				ingredients.filter(element => {
+					if (element) {
+						finalIngredients.push(element);
+					};
+				});
+			}
+
+			console.log(finalIngredients); 
+
+			for (let i = 0; i < finalIngredients.length; i++) {
+				const item = document.createElement("li");
+				const list = document.createElement("ul");
+				ingredientsDiv.append(list);
+
+				item.innerHTML = finalIngredients[i];
+				list.append(item);
+			}
+
 		})
 }
 

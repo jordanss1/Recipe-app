@@ -10,7 +10,7 @@ main, section {
 
 
 .h1-div h1 {
-	text-shadow: 1px 1px 1px black;
+	text-shadow: 1px 1px 1px rgb(254, 140, 234);
 	color: black;
 	font-family: 'Audiowide', cursive;
 	letter-spacing: 1px;
@@ -60,6 +60,7 @@ main, section {
 }
 
 .name-div {
+	text-shadow: 1px 1px 1px rgb(254, 140, 234);
 	width: 150%;
 }
 
@@ -111,6 +112,7 @@ main, section {
 	border-left: none;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
+	color: black;
 }
 
 #second-color2 {
