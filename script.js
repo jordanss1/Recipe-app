@@ -21,11 +21,17 @@
 	}
 };*/
 
+const clearContent = () => {
+	
+}
+
+
 const fetchApiAndDisplay = () => {
 	const mealName = document.getElementById("name"); 
 	const mealPicture = document.getElementById("first-color1");
 	const ingredientsDiv = document.getElementById("ingredients");
-	const instructionsDiv = document.getElementById("second-color2");
+	const measurementsDiv = document.getElementById("measurements");
+	const instructionsDiv = document.getElementById("instructions");
 	const youtube = document.getElementById("youtube");
 	const imgTag = document.createElement("img");
 
@@ -42,25 +48,40 @@ const fetchApiAndDisplay = () => {
 				youtube.disabled = true;
 			}
 
-			console.log(mealObject);
+			console.log("meal", mealObject);
 
 			mealName.innerHTML = meal;
 
 			imgTag.setAttribute("src", mealPic);
 			mealPicture.append(imgTag);
 
+
+			for (let i = 1; i < 20; i++) {
+				let element = mealObject[`strMeasure${i}`]
+				if (element !== " " || element !== "" || element !== null) {
+					console.log(element);
+					finalMeasurements.push(element);
+				}
+			}
+
+			finalMeasurements.filter(item => {
+				if (item !== "") {
+					return item;
+				}
+			})
+	 		console.log(finalMeasurements);
+
 			for (let i = 1; i < 20; i++) {
 				let ingredients = [];
 
 				ingredients.push(mealObject[`strIngredient${i}`]);
+				console.log(ingredients);
 				ingredients.filter(element => {
 					if (element) {
 						finalIngredients.push(element);
 					};
 				});
 			}
-
-			console.log(finalIngredients); 
 
 			for (let i = 0; i < finalIngredients.length; i++) {
 				const item = document.createElement("li");
@@ -70,6 +91,17 @@ const fetchApiAndDisplay = () => {
 				item.innerHTML = finalIngredients[i];
 				list.append(item);
 			}
+
+			for (let i = 0; i < finalMeasurements.length; i++) {
+				const item = document.createElement("li");
+				const list = document.createElement("ul");
+				measurementsDiv.append(list);
+
+				item.innerHTML = finalMeasurements[i];
+				list.append(item);
+			}
+
+			instructionsDiv.innerHTML = mealObject.strInstructions;
 
 		})
 }
@@ -92,5 +124,5 @@ document.getElementById("youtube").addEventListener("click", e => {
 
 document.getElementById("recipe-btn").addEventListener("click", e => {
 	e.preventDefault();
-
+	fetchApiAndDisplay();
 });
