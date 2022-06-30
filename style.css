@@ -4,7 +4,7 @@ body {
 	height: 690px;
 }
 
-main, section {
+section {
 	height: 100%;
 }
 
@@ -72,9 +72,9 @@ main, section {
 .instructions {
 	position: relative;
 	top: 10px;
-	right: 80px;
+	right: 67px;
 	height: 60%;
-	width: 123%;
+	width: 129%;
 	z-index: 1;
 }
 
@@ -98,7 +98,8 @@ main, section {
 }
 
 #second-color {
-	width: 67%;
+	flex-direction: row;
+	width: 214px;
 	height: 120%;
 }
 
@@ -108,7 +109,7 @@ main, section {
 
 #second-color1 {
 	height: 100%;
-	width: 50%;
+	width: 120%;
 	background-color: white;
 	border: 2px solid black;	
 	border-right: none;
@@ -120,18 +121,13 @@ main, section {
 }
 
 #ingredients {
-	border-right: 1px solid black;
-}
-
-#ingredients, #measurements {
-	width: 50%;
-	height: 100%;
+	width: 100%;
 }
 
 #second-color2 {
 	overflow-y: scroll;
-	height: 100%;
-	width: 50%;
+	height: 120%;
+	width: 40%;
 	border: 2px solid black;	
 	border-left: none;
 	border-radius: 7px;
@@ -139,4 +135,99 @@ main, section {
 	border-bottom-left-radius: 0;
 	border-top-left-radius: 0;
 }
+
+@media screen and (max-width: 1266px) {
+
+	body {
+		height: auto;
+	}
+
+	section {
+		flex-direction: column;
+		justify-content: space-evenly;
+	}
+
+	.h1-div {
+		position: unset;
+		align-self: center;
+		height: 130px;
+		width: 185px;
+		border: 1px solid black;
+		border-radius: 9px;
+	}
+
+	.name-div {
+		text-shadow: 1px 1px 1px rgb(254, 140, 234);
+		width: 70%;
+		height: 150px;
+	}
+
+	.name-video {
+		position: unset;
+		font-family: 'Audiowide', cursive;
+		width: 100%;		
+		height: 150px;
+		align-self: center;
+	}
+
+	.instructions {
+		flex-direction: column;
+		justify-content: space-evenly;
+		position: unset;
+		height: 60%;
+		width: 100%;
+	}
+
+	#first-color, #first-color1 {
+		align-self: center;
+		width: 219px;
+		height: 100%;
+		background-color: white;
+	}
+
+	#second-color {
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+	}
+
+	#second-color1 {
+		margin-bottom: 20px;
+		border:  none;
+		align-self: center;
+		height: 100%;
+		width: 70%;
+		background-color: white;	
+		overflow-y: scroll;
+	}
+
+	#second-color2 {
+		align-self: center;
+		overflow-y: scroll;
+		height: 300px;
+		width: 70%;
+		border: 2px solid black;	
+		border-radius: 7px;
+		background-color: rgb(83, 219, 134);
+		border-bottom-left-radius: 0;
+		border-top-left-radius: 0;
+	}
+
+}
+
+@media screen and (min-width: 1440px) {
+	.name-video {
+		width: 230px;
+		left: 292px;
+	}
+}
+
+@media screen and (min-width: 950px) {
+	#second-color2 {
+		width: 50%;
+	}
+
+}
+
+
 

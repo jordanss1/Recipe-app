@@ -25,12 +25,11 @@ const clearContent = () => {
 	const mealName = document.getElementById("name"); 
 	const mealPicture = document.getElementById("first-color1");
 	const ingredientsDiv = document.getElementById("ingredients");
-	const measurementsDiv = document.getElementById("measurements");
 	const instructionsDiv = document.getElementById("instructions");
-	const youtube = document.getElementById("youtube");
-	const arrayOfElements = [mealName, mealPicture, ingredientsDiv, measurementsDiv, instructionsDiv];
+	const arrayOfElements = [mealName, mealPicture, ingredientsDiv, instructionsDiv];
 
 	arrayOfElements.forEach(element => {
+		console.log(element);
 		element.innerHTML = "";
 	});
 
@@ -52,19 +51,18 @@ const fetchApiAndDisplay = () => {
 			let mealObject = response.data.meals[0];
 			let meal = mealObject.strMeal;
 			let mealPic = mealObject.strMealThumb;
-			let youtubeLink = mealObject.strYoutube;
 			let finalIngredients = [];
-			let finalMeasurements = [];
 
 			if (mealObject.strYoutube === "") {
 				youtube.disabled = true;
 			}
 
 			youtube.addEventListener("click", e => {
+				let youtubeLink = mealObject.strYoutube;
 				e.preventDefault();
 				window.open(youtubeLink, "_blank");
+				console.log(youtubeLink);
 			})
-
 
 			console.log("meal", mealObject);
 
@@ -75,31 +73,14 @@ const fetchApiAndDisplay = () => {
 
 
 			for (let i = 1; i < 20; i++) {
-				let element = mealObject[`strMeasure${i}`]
-				if (element !== " " || element !== "" || element !== null) {
-					console.log(element);
-					finalMeasurements.push(element);
-				}
-			}
 
-			finalMeasurements.filter(item => {
-				if (item !== "") {
-					return item;
-				}
-			})
-	 		console.log(finalMeasurements);
+	     		let ingredient = mealObject[`strMeasure${i}`] + " " + mealObject[`strIngredient${i}`];
+	                
+	       		if (ingredient.length > 2 && ingredient) {
+	               finalIngredients.push(ingredient);
+      			 }
+			};
 
-			for (let i = 1; i < 20; i++) {
-				let ingredients = [];
-
-				ingredients.push(mealObject[`strIngredient${i}`]);
-				console.log(ingredients);
-				ingredients.filter(element => {
-					if (element) {
-						finalIngredients.push(element);
-					};
-				});
-			}
 
 			for (let i = 0; i < finalIngredients.length; i++) {
 				const item = document.createElement("li");
@@ -110,23 +91,16 @@ const fetchApiAndDisplay = () => {
 				list.append(item);
 			}
 
-			for (let i = 0; i < finalMeasurements.length; i++) {
-				const item = document.createElement("li");
-				const list = document.createElement("ul");
-				measurementsDiv.append(list);
-
-				item.innerHTML = finalMeasurements[i];
-				list.append(item);
-			}
-
 			instructionsDiv.innerHTML = mealObject.strInstructions;
 
 		})
 }
 
+
 window.onload = () => {
 	fetchApiAndDisplay();
 }
+
 
 document.getElementById("recipe-btn").addEventListener("click", e => {
 	e.preventDefault();
