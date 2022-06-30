@@ -22,7 +22,18 @@
 };*/
 
 const clearContent = () => {
-	
+	const mealName = document.getElementById("name"); 
+	const mealPicture = document.getElementById("first-color1");
+	const ingredientsDiv = document.getElementById("ingredients");
+	const measurementsDiv = document.getElementById("measurements");
+	const instructionsDiv = document.getElementById("instructions");
+	const youtube = document.getElementById("youtube");
+	const arrayOfElements = [mealName, mealPicture, ingredientsDiv, measurementsDiv, instructionsDiv];
+
+	arrayOfElements.forEach(element => {
+		element.innerHTML = "";
+	});
+
 }
 
 
@@ -41,12 +52,19 @@ const fetchApiAndDisplay = () => {
 			let mealObject = response.data.meals[0];
 			let meal = mealObject.strMeal;
 			let mealPic = mealObject.strMealThumb;
+			let youtubeLink = mealObject.strYoutube;
 			let finalIngredients = [];
 			let finalMeasurements = [];
 
 			if (mealObject.strYoutube === "") {
 				youtube.disabled = true;
 			}
+
+			youtube.addEventListener("click", e => {
+				e.preventDefault();
+				window.open(youtubeLink, "_blank");
+			})
+
 
 			console.log("meal", mealObject);
 
@@ -110,19 +128,8 @@ window.onload = () => {
 	fetchApiAndDisplay();
 }
 
-document.getElementById("youtube").addEventListener("click", e => {
-	e.preventDefault();
-
-	axios.get("https://www.themealdb.com/api/json/v1/1/random.php")
-
-		.then(response => {
-			let link = response.data.meals[0].strYoutube;
-			window.open(link, "_blank");
-		})
-
-})
-
 document.getElementById("recipe-btn").addEventListener("click", e => {
 	e.preventDefault();
+	clearContent();
 	fetchApiAndDisplay();
 });
