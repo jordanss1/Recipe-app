@@ -32,7 +32,8 @@ const clearContent = () => {
 	const mealPicture = document.getElementById("first-color1");
 	const ingredientsDiv = document.getElementById("ingredients");
 	const instructionsDiv = document.getElementById("instructions");
-	const arrayOfElements = [mealName, mealPicture, ingredientsDiv, instructionsDiv];
+	const youtube = document.getElementById("youtube");
+	const arrayOfElements = [mealName, mealPicture, ingredientsDiv, instructionsDiv, youtube];
 
 	arrayOfElements.forEach(element => {
 		element.innerHTML = "";
@@ -49,6 +50,7 @@ const fetchApiAndDisplay = () => {
 	const instructionsDiv = document.getElementById("instructions");
 	const youtube = document.getElementById("youtube");
 	const imgTag = document.createElement("img");
+	const anchorTag = document.createElement("a");
 
 	axios.get("https://www.themealdb.com/api/json/v1/1/random.php")
 
@@ -63,11 +65,15 @@ const fetchApiAndDisplay = () => {
 				youtube.disabled = true;
 			}
 
-			youtube.addEventListener("click", e => {
+			/*youtube.addEventListener("click", e => {
 				e.preventDefault();
 				window.open(youtubeLink, "_blank");
-			})
+			})*/
 
+			anchorTag.setAttribute("href", youtubeLink);
+			anchorTag.setAttribute( "target", "_blank");
+			anchorTag.innerHTML = "Watch Video";
+			youtube.append(anchorTag);
 			mealName.innerHTML = meal;
 			imgTag.setAttribute("src", mealPic);
 			mealPicture.append(imgTag);
@@ -76,6 +82,8 @@ const fetchApiAndDisplay = () => {
 
 			for (let i = 1; i < 20; i++) {
 	     		let ingredient = mealObject[`strMeasure${i}`] + " " + mealObject[`strIngredient${i}`];
+
+	     		console.log(ingredient);
 	                
 	       		if (ingredient.length > 2 && ingredient) {
 	               finalIngredients.push(ingredient);

@@ -69,6 +69,21 @@ section {
 	word-break: break-word;
 }
 
+#youtube {
+	height: 70px;
+	width: 100%;
+}
+
+#youtube a {
+	font-size: 15px;
+	text-decoration: none;
+	color: black;
+	background-color: rgb(254, 140, 234);
+	border: 1px solid black;
+	border-radius: 20px;
+	padding: 5px;
+}
+
 .instructions {
 	position: relative;
 	top: 10px;
