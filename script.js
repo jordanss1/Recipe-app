@@ -61,18 +61,16 @@ const fetchApiAndDisplay = () => {
 			let youtubeLink = mealObject.strYoutube;
 			let finalIngredients = [];
 
-			if (mealObject.strYoutube === "") {
-				youtube.disabled = true;
-			}
-
-			/*youtube.addEventListener("click", e => {
-				e.preventDefault();
-				window.open(youtubeLink, "_blank");
-			})*/
 
 			anchorTag.setAttribute("href", youtubeLink);
 			anchorTag.setAttribute( "target", "_blank");
-			anchorTag.innerHTML = "Watch Video";
+
+			if (mealObject.strYoutube) {
+				anchorTag.innerHTML = "Watch Video";
+			} else {
+				anchorTag.innerHTML = "Watch Video";
+				anchorTag.setAttribute("style", "background-color: white; border: none; color: grey; pointer-events: none;");
+			}
 			youtube.append(anchorTag);
 			mealName.innerHTML = meal;
 			imgTag.setAttribute("src", mealPic);
