@@ -151,6 +151,16 @@ section {
 	border-top-left-radius: 0;
 }
 
+
+
+
+@media screen and (min-width: 950px) {
+	#second-color2 {
+		width: 50%;
+	}
+
+}
+
 @media screen and (max-width: 1266px) {
 
 	body {
@@ -227,14 +237,6 @@ section {
 		border-bottom-left-radius: 0;
 		border-top-left-radius: 0;
 	}
-
-}
-
-@media screen and (min-width: 1600px) {
-	.name-video {
-		width: 265px;
-		left: 345px;
-	}
 }
 
 @media screen and (min-width: 1366px) {
@@ -244,7 +246,6 @@ section {
 	}
 }
 
-
 @media screen and (min-width: 1440px) {
 	.name-video {
 		width: 230px;
@@ -252,11 +253,11 @@ section {
 	}
 }
 
-@media screen and (min-width: 950px) {
-	#second-color2 {
-		width: 50%;
+@media screen and (min-width: 1600px) {
+	.name-video {
+		width: 265px;
+		left: 345px;
 	}
-
 }
 
 
