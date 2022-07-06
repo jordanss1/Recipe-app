@@ -230,6 +230,21 @@ section {
 
 }
 
+@media screen and (min-width: 1600px) {
+	.name-video {
+		width: 265px;
+		left: 345px;
+	}
+}
+
+@media screen and (min-width: 1366px) {
+	.name-video {
+		width: 220px;
+		left: 268px;
+	}
+}
+
+
 @media screen and (min-width: 1440px) {
 	.name-video {
 		width: 230px;
@@ -243,6 +258,8 @@ section {
 	}
 
 }
+
+
 
 
 

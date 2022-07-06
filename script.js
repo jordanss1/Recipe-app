@@ -83,7 +83,7 @@ const fetchApiAndDisplay = () => {
 
 	     		console.log(ingredient);
 	                
-	       		if (ingredient.length > 2 && ingredient) {
+	       		if (ingredient.length > 2) {
 	               finalIngredients.push(ingredient);
       			 }
 			};
