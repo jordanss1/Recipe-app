@@ -71,6 +71,7 @@ const fetchApiAndDisplay = () => {
 				anchorTag.innerHTML = "Watch Video";
 				anchorTag.setAttribute("style", "background-color: white; border: none; color: grey; pointer-events: none;");
 			}
+			
 			youtube.append(anchorTag);
 			mealName.innerHTML = meal;
 			imgTag.setAttribute("src", mealPic);
@@ -80,8 +81,6 @@ const fetchApiAndDisplay = () => {
 
 			for (let i = 1; i < 20; i++) {
 	     		let ingredient = mealObject[`strMeasure${i}`] + " " + mealObject[`strIngredient${i}`];
-
-	     		console.log(ingredient);
 	                
 	       		if (ingredient.length > 2) {
 	               finalIngredients.push(ingredient);
